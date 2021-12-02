@@ -1,0 +1,39 @@
+#app {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.cat {
+    width: 300px;
+    margin: 5px;
+    background-color: #C5E1A5;
+    color: #33691E;
+}
+
+.cat h2 {
+    text-align: center;
+}
+
+.cat p {
+    margin-left: 10px;
+}
+
+.cat img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.details_button {
+    display: block;
+    margin: 20px 10px 0 10px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    background-color: #558B2F;
+    color: #C5E1A5;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
