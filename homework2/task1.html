@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 2.1</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="css/task1.css">
+</head>
+<body>
+
+<section id="app">
+    <p>Сортировать: </p>
+    <a href="" v-on:click="sortByTitle">[ по названию ]</a>
+    <a href="" v-on:click="sortByPrice">[ по стоимости ]</a>
+    <a href="" v-on:click="sortByCount">[ по количеству ]</a>
+    <div v-for="product in sortedGoods" class="product"
+        :class="{zero: product.count === 0,
+                 'not-many': (product.count > 0 && product.count < 20),
+                 many: product.count >= 20}">
+        <p>Товар: {{ product.title }}</p>
+        <p>Цена: {{ product.price }}</p>
+    </div>
+</section>
+
+<script src="js/task1.js"></script>
+</body>
+</html>

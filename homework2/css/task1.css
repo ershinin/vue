@@ -1,0 +1,30 @@
+#app {
+    width: 500px;
+}
+
+#app > p {
+    display: inline;
+}
+
+.product {
+    display: block;
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+.product > p {
+    display: block;
+}
+
+.zero {
+    background-color: #F48FB1;
+}
+
+.not-many {
+    background-color: #DCE775;
+}
+
+.many {
+    background-color: #388E3C;
+}
