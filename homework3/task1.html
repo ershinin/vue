@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 3.1</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="css/task1.css">
+</head>
+<body>
+
+<section id="app">
+    <table>
+        <thead>
+            <tr>
+                <th>Услуга</th>
+                <th>Стоимость</th>
+            </tr>
+        </thead>
+        <tr v-for="(service, index) in services">
+            <td>{{ service.title }}</td>
+            <td>{{ service.price }}</td>
+        </tr>
+    </table>
+    <div>
+        <label for="services">Выберите одну или несколько услуг: </label>
+        <select id="services" name="service" multiple v-model="selectedServices">
+            <option :value="i" v-for="(service, i) in services">
+                {{ service.title }}
+            </option>
+        </select>
+    </div>
+    <p>Итоговая стоимость услуг:</p>
+    <p>{{ finalPrice }}</p>
+</section>
+
+<script src="js/task1.js"></script>
+</body>
+</html>
