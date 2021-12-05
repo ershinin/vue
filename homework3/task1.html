@@ -9,28 +9,15 @@
 <body>
 
 <section id="app">
-    <table>
-        <thead>
-            <tr>
-                <th>Услуга</th>
-                <th>Стоимость</th>
-            </tr>
-        </thead>
-        <tr v-for="(service, index) in services">
-            <td>{{ service.title }}</td>
-            <td>{{ service.price }}</td>
-        </tr>
-    </table>
-    <div>
-        <label for="services">Выберите одну или несколько услуг: </label>
-        <select id="services" name="service" multiple v-model="selectedServices">
-            <option :value="i" v-for="(service, i) in services">
-                {{ service.title }}
-            </option>
-        </select>
+    <label >
+        Введите название статьи:
+        <input type="text" v-model="input">
+    </label>
+    <div v-for="article in matchingArticles"
+         class="list-items">
+        <img :src="article.image" alt="Картинка к статье">
+        <p>{{ article.title.toUpperCase() }}</p>
     </div>
-    <p>Итоговая стоимость услуг:</p>
-    <p>{{ finalPrice }}</p>
 </section>
 
 <script src="js/task1.js"></script>

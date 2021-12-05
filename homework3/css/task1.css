@@ -1,32 +1,22 @@
 #app {
-    width: 500px;
+    width: 800px;
 }
 
-table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #90A4AE;
-    margin: 10px 0;
+
+.list-items {
+    display: flex;
+    flex-direction: row;
 }
 
-thead {
-    background-color: #90A4AE;
+.list-items > img {
+    width: 100px;
+    border-radius: 50%;
+    display: inline-block;
 }
 
-thead th:nth-child(1) {
-    width: 80%;
+.list-items > p {
+    line-height: 100px;
+    height: 100px;
+    width: 600px;
+    margin: 0px 10px;
 }
-
-thead th:nth-child(2) {
-    width: 20%;
-}
-
-th, td {
-    padding: 10px;
-}
-
-tr {
-    border: 2px solid #90A4AE;
-}
-

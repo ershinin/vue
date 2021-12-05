@@ -1,0 +1,32 @@
+#app {
+    width: 500px;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #90A4AE;
+    margin: 10px 0;
+}
+
+thead {
+    background-color: #90A4AE;
+}
+
+thead th:nth-child(1) {
+    width: 80%;
+}
+
+thead th:nth-child(2) {
+    width: 20%;
+}
+
+th, td {
+    padding: 10px;
+}
+
+tr {
+    border: 2px solid #90A4AE;
+}
+
