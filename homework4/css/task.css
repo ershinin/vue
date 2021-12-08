@@ -1,0 +1,11 @@
+.item {
+    width: 250px;
+    height: 400px;
+    display: inline-block;
+    margin: 10px;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
