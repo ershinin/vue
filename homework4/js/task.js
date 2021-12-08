@@ -72,7 +72,7 @@ let gallery = {
                 Путь к изображению:
                 <input type="text" v-model="addingImage.src">
             </label>
-            <button>Добавить</button>
+            <button type="submit">Добавить</button>
         </form>
         `
 };
