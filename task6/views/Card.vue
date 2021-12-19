@@ -5,18 +5,17 @@
     <span v-if="object.count > 0">{{ object.count }}</span>
     <span v-else>Товара нет в наличии</span>
     <p>Описание: {{ object.description }}</p>
-    <img :src="'../images/' + object.image" :alt="'../images/' + object.image"/>
-    <button @click="addProduct(object.title)">Добавить в корзину</button>
+    <img :src="require(`../images/${object.image}`)" :alt="object.image"/>
+    <button @click="addProduct(object.id)">Добавить в корзину</button>
   </div>
 </template>
 
 <script>
-import {goods} from "../data.js";
 import {mapMutations} from 'vuex';
 export default {
-  data() {
-    return {
-      object: goods.find(obj => obj.id == this.$route.params.id)
+  computed: {
+    object() {
+      return this.$store.state.goods.find(obj => obj.id == this.$route.params.id)
     }
   },
   methods: {

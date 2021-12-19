@@ -1,8 +1,10 @@
 import { createStore } from 'vuex';
+import {goods} from "../data.js";
 
 export default createStore({
   state: {
-    basket: new Map(), // храним мапу {название товара: его количество}
+    goods,
+    basket: new Map(), // храним корзину в виде {id товара: его количество}
   },
   getters: {
     productsCount(state) {
@@ -11,29 +13,23 @@ export default createStore({
         sum += value;
       return sum;
     },
-    getProductCount: (state) => (title) => {
-      return state.basket.get(title)
+    getProductCount: (state) => (id) => {
+      return state.basket.get(id)
     }
   },
   mutations: {
-    addProduct(state, productTitle) {
-      if (!state.basket.has(productTitle)) {
-        state.basket.set(productTitle, 1);
+    addProduct(state, productId) {
+      if (!state.basket.has(productId)) {
+        state.basket.set(productId, 1);
       } else {
-        state.basket.set(productTitle, state.basket.get(productTitle) + 1);
+        state.basket.set(productId, state.basket.get(productId) + 1);
       }
     },
-    reduceCount(state, productTitle) {
-      if (state.basket.get(productTitle) > 1) {
-        state.basket.set(productTitle, state.basket.get(productTitle) - 1);
-      }
+    reduceCount(state, productId) {
+      state.basket.set(productId, state.basket.get(productId) - 1);
     },
-    deleteProduct(state, productTitle) {
-      state.basket.delete(productTitle)
+    deleteProduct(state, productId) {
+      state.basket.delete(productId)
     }
-  },
-  actions: {
-  },
-  modules: {
   }
 })

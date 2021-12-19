@@ -3,10 +3,10 @@
     <h3>Наименование: {{ object.title }}</h3>
     <span id="price">Цена: {{ object.price }}</span>
     <span>Количество:</span>
-    <button @click="addProduct(object.title)">+</button>
-    <span>{{ count }}</span>
-    <button @click="reduceCount(object.title)">-</button>
-    <button @click="deleteProduct(object.title)" id="delete">Удалить из корзины</button>
+    <button @click="addProduct(object.id)">+</button>
+    <span>{{ productCount }}</span>
+    <button @click="reduceCount(object.id)" :disabled="productCount <= 1">-</button>
+    <button @click="deleteProduct(object.id)" id="delete">Удалить из корзины</button>
   </div>
 </template>
 
@@ -14,8 +14,12 @@
 import {mapMutations} from 'vuex';
 export default {
   props: {
-    object: Object,
-    count: Number
+    object: Object
+  },
+  computed: {
+    productCount() {
+      return this.$store.getters.getProductCount(this.object.id)
+    }
   },
   methods: {
     ...mapMutations(['addProduct', 'reduceCount', 'deleteProduct']),

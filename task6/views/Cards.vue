@@ -3,16 +3,14 @@
 </template>
 
 <script>
-import {goods} from "../data.js";
 import MiniCard from "../components/MiniCard";
 export default {
   components: {MiniCard},
-  data() {
-    return {
-      goods,
+  computed: {
+    goods() {
+      return this.$store.state.goods;
     }
   },
-
 }
 </script>
 

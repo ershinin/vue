@@ -3,28 +3,25 @@
   <p>Общая стоимость товаров в корзине: {{ basketPrice }}</p>
   <mini-card-in-basket v-for="good in goodsInBasket"
                        :key="good.id"
-                       :object="good"
-                       :count="this.$store.getters.getProductCount(good.title)"/>
+                       :object="good"/>
 </template>
 
 <script>
-import {goods} from "../data.js";
 import MiniCardInBasket from "../components/MiniCardInBasket";
 export default {
   components: {MiniCardInBasket},
-  data() {
-    return {
-      goods,
-    }
-  },
   computed: {
     goodsInBasket() {
-      return goods.filter(obj => this.$store.state.basket.has(obj.title))
+      return this.$store.state.goods.filter(
+          obj => this.$store.state.basket.has(obj.id)
+      )
     },
     basketPrice() {
       let sum = 0;
       for (let [key, value] of this.$store.state.basket) {
-        sum += goods.find(obj => obj.title === key).price * value;
+        sum += this.$store.state.goods
+            .find(obj => obj.id === key)
+            .price * value;
       }
       return sum;
     }
